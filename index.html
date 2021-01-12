@@ -1,0 +1,238 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>xelahot.com</title>
+
+	<!--<script
+	src="https://www.paypal.com/sdk/js?client-id=AbGDgU2NzqnylHVeQX5bZjnJjhaU_vJObr-9Axw2YwC1x33WvtiPMyx2gIriJZeJnqnfKMAV6k2MgZNK">
+	</script>
+	<script src="https://js.stripe.com/v3/"></script>-->
+
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> <!-- Arrow up (back to top)-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	
+    <link rel='stylesheet' href='private\css\sameStyle.css' type='text/css'>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='private\js\script.js'></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head><body style="margin-top: 60px;">
+    
+<!-- Confirm buying form -->
+<div class="wrapperConfirm" style="display:none;">
+    <div class="elementConfirm" style="">
+        <div class="row" style="">
+    		<!-- How to use : -->
+    		<div class="col-md-12 col-sm-12" style="display: flex; align-items: stretch;">
+    			<div class="card" style="border: #C0C0C0 1px solid">
+    				<div class="card-body">
+    				    <img src='private\images\warning.png' alt="warningIcon" style="float: left; width: 25px; height: 25px; margin-right: 15px;">
+    				    <img id="closeElementConfirm" src='private\images\close.png' alt="Close" style="margin-left: 30px; float: right; width: 30px; height: 30px;">
+    				    <p id="termsWarning">By buying this extension, you agree to the <a id="termsLink" href="#terms" style="text-decoration: underline;">Terms of Service, Privacy Policy and Refund Policy</a> section. Refunds are not possible under any circumstances. Make sure to read the compatibiliy section too.</p>
+
+                        <form id="payment-form" action='/private/model/handler.php' method="post" target="_blank">
+                            <div>
+                                <input disabled="" type='submit' name='submit' value='I agree' id="card-button" class="btnConfirm btn btn-success" style="min-height: 0px; margin-left: 20px;">
+                            </div>
+                            
+                            <!--<img id="loadingIcon" src='' alt="loadingIcon" style="width: 35px; height: 35px; margin-top: 20px; margin-right: 20px;"/>-->
+                            <h5 id="payment-result">It's currently not possible to buy new licenses. We'll be back as soon as possible!</h5>
+                        </form>
+    				</div>
+    			</div>
+    		</div>
+        </div>
+    </div>
+</div>
+
+<div id="opacityDiv">
+<!-- Back to top button -->
+<a id="scrollUpBtn"></a>
+
+<nav id="navPages" class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="public\index.html"><img src='private\images\xelahotLogo.png' alt="xelahot icon" style="width: 35px; height: 35px; margin-right: 12px; border-radius: 25px;">xelahot.com</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item firstItem"><a class="nav-link" href="index.html" id="ts_home">Home</a></li>
+
+            </li>        </ul>
+    </div>
+</nav><!--<h3 style="color: red; font-size: 150%; text-align:center; margin-bottom: 12px;">* This website is under maintenance. I recommend not trying to click on anything for now. Service will be back soon! *</h3>-->
+
+<!-- Vert (haut) -->
+<div class="container-fluid" style="background-image: linear-gradient(45deg, #FFFFFF, #bdffab);
+	transform: skewY(-15deg); position: absolute; top: 200px;">
+    <div class="container myCardContainer" style="height: 400px; transform: skewY(15deg);"></div>
+</div>
+<!-- Bleu-ish -->
+<div class="container-fluid" style="background-image: linear-gradient(45deg, #FFFFFF, #D6EBE8);
+	transform: skewY(15deg); position: absolute; top: 400px;">
+    <div class="container myCardContainer" style="height: 1000px; transform: skewY(-15deg);"></div>
+</div>
+
+<div class="container myCardContainer" style="padding: 25px 15px 25px 15px;">
+    <!-- What is xelahot.com?-->
+    <div class="row" style="margin-bottom: 20px;">
+		<div class="col-12" style="height: 100%;">
+			<div class="card" style="border: none; background-color: transparent;">
+				<div class="card-body" style="text-align:center; padding-bottom: 0px;">
+					<h4 class="card-title">Xelahot Extensions</h4>
+					<p class="card-text" style="font-size: 17px;">Did you ever want to install extensions on your favorite iPhone And Android&nbsp;games?</p>
+					<p style="font-size: 17px;">On this website, you can buy licenses for a collection of games extensions that are made available to you by installing "Xelahot Extensions" tool&nbsp;on&nbsp;your&nbsp;device.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Side by side -->
+<div class="container myCardContainer" style="margin-bottom: 30px;">
+    <div class="row" style="display: flex; flex-direction: row;">
+        <!-- How to install : -->
+		<div class="col-md-6 col-sm-12 howinstall" style="display: flex; align-items: stretch;">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">How to install IOS Device:</h5>
+					<ol>
+					    <li>Install a package manager like "Cydia" on your device using tools like "<a target="_blank" style="text-decoration: underline;" href="https://checkra.in/">Checkra1n</a>", "<a target="_blank" style="text-decoration: underline;" href="https://unc0ver.dev/">Unc0ver</a>", "<a target="_blank" style="text-decoration: underline;" href="https://theodyssey.dev/">Odyssey</a>", etc.</li>
+					    <li>Add my Github repository <b><a target="_blank" style="text-decoration: underline;" href="https://xelahot.github.io">https://xelahot.github.io</a></b> in your package manager.
+    					    <a style="display: block; margin: 10px 0 10px 0;" class="btn btn-sm btn-info" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://xelahot.github.io">Add repo</a>
+					    </li>
+					    <li>Install "<b>Xelahot Extensions</b>" in Cydia.</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+
+
+		
+		<!-- How to use : -->
+		<div class="col-md-6 col-sm-12" style="display: flex; align-items: stretch;">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">How to install Android Device(No Root):</h5>
+        			<ol>
+                        <li>First you need to pay</li>
+                        <li>After payment, you will receive a license code and an apk file by email</li>
+                        <li>You must paste this code into the apk file that you download</li>
+                        <li>Now you must enter the game and activate</li>
+        			</ol>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<!-- Available extensions : -->
+<div class="container myCardContainer" style="margin-bottom: 24px;">
+    <div class="row" style="margin-bottom: 30px;">
+        <br>
+        <h4 style="margin: 0 0 30px 35px; position: relative">Available extensions :</h4>
+		<div class="col-12">
+			<div class="card shadow">
+			    <div class="card-header" style="padding: 0;">
+    				<img class="card-img-top" src='private\images\agarBanner.jpg' alt="gta image">
+			    </div>
+				<div class="card-body">
+				    <h5 style="color:green; float: right;">3.00$<sub style="margin-left: 5px;"></sub></h5>
+					<h5 class="card-title" id="ts_pjt1_title">Agar.io</h5>
+					<p class="card-text" id="ts_pjt1_preview">This is an extension for Agar.io. You want to have an advantage over other online players? That extension is just what you need. It comes with many options and a newly redesigned user interface.</p>
+				</div>
+				<!--<div style="padding: 20px;">
+    				<img src='' alt="warningIcon" style="float: left; width: 25px; height: 25px; margin-right: 15px;"/>
+				    <h5 style="color: black; font-size: 100%; text-align:left; margin-bottom: 12px; overflow:hidden;">It's currently not possible to buy new licenses. Beware of scam websites. Credit card payments will be accepted very soon!</h5>
+				</div>-->
+				<div class="card-footer">
+				    <a href="public\projectInfo.html" class="btn btn-info">Details</a>
+
+                                                <a href="https://www.donationalerts.com/r/brother1123" style="margin-right: 12px;" class="btn btn-success ts_buy">Buy a license</a>
+                        				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<!-- Other stuff -->
+<div class="container myCardContainer" style="margin-bottom: 24px;">
+    <!-- Compatibility : -->
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-12">
+			<div class="card toggables">
+				<div class="card-body">
+    			    <img src='private\images\plus.png' alt="toggableIcon" style="float:right; width: 30px; height: 30px;">
+					<h5 class="card-title" style="margin-bottom: 0px;">Compatibility</h5>
+    				<ul class="collapsable" style="margin-top: 12px; display: none;">
+    				    <li>Works with Apple And Android devices. Cydia or any other package manager must be installed.</li>
+    					<li>Should work from <b>iPhone 11.1IOS-14.3IOS Need Jailbreak</b>.</li>
+    					<li>Should work from <b>Android Device</b> Android 5.0 «Lollipop»Android 6.0 «Marshmallow» Android 6.0 «Marshmallow» Android 8.0 «Oreo» Android 9.0 Pie Android 10.0 Q</li>
+    				</ul>
+    				<!--<ul style="margin-left: 12px;">
+    				    <li style="list-style: none; color: green;">· iPhone 6s, iOS 13.3</li>
+    				    <li style="list-style: none; color: green;">· iPhone 6s+, iOS 13.5</li>
+    				    <li style="list-style: none; color: green;">· iPhone 7+, iOS 13.3.1</li>
+    				    <li style="list-style: none; color: green;">· iPhone 8, iOS 13.3</li>
+    				    <li style="list-style: none; color: green;">· iPhone X, iOS 13.2.3</li>
+    				    <li style="list-style: none; color: green;">· iPhone X, iOS 13.5</li>
+    				    <li style="list-style: none; color: green;">· iPad (5th gen), iOS 13.5</li>
+    				    <li style="list-style: none; color: green;">· iPad Pro, iOS 13.3</li>
+    				    <li style="list-style: none; color: #962100; text-decoration: line-through;">· iPhone X, iOS 12.3.1</li>
+    				    <li style="list-style: none; color: #962100; text-decoration: line-through;">· iPhone XS Max, iOS 13.5</li>
+    				    <li style="list-style: none; color: #962100; text-decoration: line-through;">· iPhone 11 Pro, iOS 13.3.1</li>
+    				    <li style="list-style: none; color: #962100; text-decoration: line-through;">· iPad Air 2, iOS 12.4</li>
+    				</ul>-->
+    			</div>
+			</div>
+		</div>
+	</div>
+	<!-- Terms of Service... -->
+	<div id="terms" class="row" style="margin-bottom: 30px;">
+	    <div class="col-12">
+			<div class="card toggables" id="termsCard">
+				<div class="card-body">
+    			    <img src='private\images\plus.png' alt="toggableIcon" style="float:right; width: 30px; height: 30px;">
+					<h5 class="card-title" style="margin-bottom: 0;">Terms of Service, Privacy Policy and Refund Policy</h5>
+					<div class="collapsable" style="display: none;">
+					   <p style="font-size: 75%;">(scrollable)</p>
+    					<textarea readonly="" style="overflow-y: visible; height: 250px; width: 100%; resize: none; padding: 12px; font-weight: 500; border:1px solid #eed202; box-shadow: 0 0 3px black;">› No refunds possible under any circumstances.&#10;&#10;› I'm not responsible if any unexpected error/problem occurs and leads this service not to be working for you. This tool is not perfect and might still have some bugs.&#10;&#10;› A license can get banned at any moment if the algorithm detects suspicious or forbidden activity. Xelahot isn't responsible if that happens to you. Licenses are meant to be used on one device only and cannot currently be re-assigned to a different device after being used once. Make sure not to leak or share you license.&#10;&#10;› "Xelahot Extensions" might not be compatible with your device or iOS version (see the "compatibility section"). In rare cases it might still not work for you but it'll be my pleasure to try and help you fix the issue if possible.&#10;&#10;› You must remember your xelahot.com credentials as it is currently not possible to change your password. Purchased licenses become available on the "My Licenses" page of your account and are also sent to you by email. If your license wasn't delivered because of a bug, you are still not elligible for a refund because that would conflict with the first disclaimer of this section. On the other hand I keep records of every transactions and it'll be my pleasure to try and help you fix the issue if possible.&#10;&#10;› Any transaction considered suspicious by my algorithm my not get a license delivered.&#10;&#10;› There's no guarantee that an extension will work forever since updates by the game developers might break it. Note that I'll try to update my extensions as long as I'm able to. Also, if I ever decide to shutdown my server, extensions will stop to work accordingly.&#10;&#10;› Games targetted by the extensions might implement a banning system or any kind of restrictions since extensions are not always fair to other players. Use this at your own risk.&#10;&#10;› Database corruption, loss, leaks or any type of cyber attacks is very unlikely to happen but if this ever happens, I'm not responsible. I will make regular backups of my database anyways.&#10;&#10;› I'm not responsible of the effects that "Xelahot Extensions" could have on your device. Third party extensions like this could make your device behave unexpectedly. I do not recommend to install "Xelahot Extensions" on untested devices and iOS versions even though it will probably just not do anything.&#10;&#10;› You agree not to start or get involved in any legal pursuit against me or this buisness.&#10;&#10;› Tampering with the games files or "Xelahot Extensions" might lead to a license ban. Tampering mechanisms have been implemented so I recommend you to use this like a normal person would do and it should work just fine.&#10;&#10;› We may collect some informations from your device such as it's iOS version, type of device, etc.
+    			        </textarea> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Social networks : -->
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Social networks :</h5>
+					<ul style="padding-left: 0px; float: left;">
+					    <li style="list-style: none; display: inline; margin-right: 12px;"><a href="https://www.discord.gg/svDfk7G"><img src='private\images\discord.png' alt="Discord icon" style="width: 35px; height: 35px;"></a></li>
+					    <li style="list-style: none; display: inline; margin-right: 12px;"><a href="https://www.instagram.com/xelahot_extensions/"><img src='private\images\instagram.png' alt="Instagram icon" style="width: 35px; height: 35px;"></a></li>
+					    <li style="list-style: none; display: inline; margin-right: 12px;"><a href="https://www.facebook.com/Xelahot-103452548078705/"><img src='private\images\facebook.png' alt="Facebook icon" style="width: 35px; height: 35px;"></a></li>
+					</ul>
+					<div style="float: right;">
+                        <button hidden="" disabled="" class="btnConfirm btn btn-light" style="max-width: 6em; border: solid 1px black;">Donate</button><script src="https://www.convergepay.com/hosted-payments/buy_button_script/4c6362505456714953526d347a54342f376f5a6e5877414141586264346d786f"></script>
+                    </div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<p class="lastElem" id="lastElem" style="text-align: center; margin-top: 20px; color: #8f8f8f; position: relative">Support at xelahot@hotmail.com</p>
+</div>
+</body>
+</html>

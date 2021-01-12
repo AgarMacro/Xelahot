@@ -1,0 +1,359 @@
+.myCardContainer .card-footer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.myCardContainer .card-footer input[value = "Buy"],
+.myCardContainer .card-footer input[value = "Acheter"]{
+    margin-right: 15px;
+}
+
+.lastProject{
+    margin-bottom: 32px;
+}
+
+
+div.projectInfoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#projectInfo{
+    border-radius: 4px;
+    position: fixed;
+    display: none;
+    /*opacity: 0;*/ /*0 / 1*/
+    /*visibility: visible;*/ /*hidden / visible*/
+    z-index: 1000;
+    top: 78px;
+}
+
+#projectInfo>div{
+    padding: 0;
+}
+
+/* Remove scrollbar */
+.invisible{
+    /*visibility: hidden;*/
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+body{
+	margin-top: 78px; /* Remove if navbar is not fixed-top */
+}
+
+#scrollUpBtn {
+  display: inline-block;
+  background-color: #333;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#scrollUpBtn::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#scrollUpBtn:hover {
+  cursor: pointer;
+  background-color: #555;
+}
+#scrollUpBtn:active {
+  background-color: #555;
+}
+#scrollUpBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+nav{
+	margin-bottom: 25px; /* Useless with fixed-top*/
+}
+
+nav .navLogout:hover{
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.nav-item :not(:first-child){
+     padding: 0 12px 0 12px;
+}
+
+.nav-item a{
+    width: 150px;
+}
+
+table{
+    margin-top: 12px;
+}
+
+/* Screens with hamburgers adjustments */
+@media only screen and (max-width : 991px){
+    /* Add margin bottom to the whole opened hamburger section */
+    #navbarSupportedContent{
+        margin-bottom: 8px;
+    }
+
+    #navbarSupportedContent ul li{
+        margin-bottom: 12px;
+    }
+
+    #navbarSupportedContent ul li:first-child, #navbarSupportedContent ul li:last-child{
+        margin-bottom: 0px;
+    }
+
+    /* Fix "My licenses" table for iOS */
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    table{
+        border: none;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid rgba(0,0,0,.125); /* Was #eee */
+        margin-bottom: 20px;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.222);
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 4px;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    td.padding{
+        padding: 28px 12px 12px 12px;
+    }
+
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before { content: "Game"; }
+    td:nth-of-type(2):before { content: "License"; }
+    td:nth-of-type(3):before { content: "Ban status"; }
+    td:nth-of-type(4):before { content: "Ban reason"; }
+    td:nth-of-type(5):before { content: "Purchase date"; }
+}
+
+/* Screens without hamburgers adjustments */
+@media only screen 
+and (min-width : 992px){
+	.nav-item.firstItem{
+		text-align: right;
+	}
+
+    .nav-item{
+        padding-left: 25px;
+    }
+
+	.nav-item.dropdown{
+		padding-left: 25px;
+	}
+
+	.nav-item.dropdown a.nav-link{
+		border-left-width: 1px;
+		border-left-style: solid;
+		border-left-color: gray;
+		padding: 0px 8px 0px 25px;
+		/*margin: 8px 0px 8px 0px;*/
+		width: 105px; /* Fix language name moving other nav items when changed */
+	}
+
+    #navbarSupportedContent ul li:not(:first-child) :hover{
+        color: #343a40;
+    }
+}
+
+/* Fix dropdown bottom margin // this fix looks weird on iOS */
+.dropdown.show{
+	/*margin-bottom: 8px;*/
+}
+
+.myCardContainer hr{
+	margin-top: 32px;  
+	margin-bottom: 32px;
+}
+
+.myCardContainer div.card{
+	margin-left: 10px; /* have padding of 15px already */
+	margin-right: 10px;
+	/*background-color: rgba(220, 220, 220, 0.2);  Light gray */
+}
+
+.myCardContainer div.card-footer{
+	margin: 0px;
+	padding: 15px;
+	/*background-color: #343a40; /* Strong gray */
+}
+
+h2{
+	text-align: center;
+	margin: auto;
+}
+
+dt{
+	margin-bottom: 10px;
+}
+
+a, a:active, a:focus{
+	color: black;
+}
+
+a:hover{
+	color: #343a40;
+}
+
+.btn{
+	width: 200px;
+}
+
+form .form-group input{
+    margin-bottom: 12px;
+}
+
+.linkLicense{
+    color: #007bff;
+    font-size: 10pt;
+}
+
+.linkLicense:active, .linkLicense:focus{
+    color: #007bff;
+}
+
+.linkLicense:hover{
+    color: black;
+}
+
+.gameSelector{
+    margin-bottom: 12px;
+}
+
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+@media only screen and (max-width : 991px){
+    .howinstall{margin-bottom: 20px;}
+    .wrapperConfirm{
+        width: 75% !important;
+        left: 12.5% !important;
+    }
+    #termsWarning{
+        clear: both;
+        padding-top: 15px;
+    }
+    
+    #payment-result{
+        clear: both;
+        margin-top:20px;
+    }
+}
+
+  .my-input {
+    padding: 10px;
+    border: 1px solid green;
+  }
+ 
+.toggables .minus{
+    content:url("../images/minus.png");
+}
+
+.wrapperConfirm {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  height: 50%;
+  width: 50%;
+
+  /* this is what centers your element in the fixed wrapper*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; /* aligns on vertical for column */
+  align-items: center; /* aligns on horizontal for column */
+  
+  z-index: 1;
+}
+
+.elementConfirm {
+    margin: auto;
+    width: 100%;
+}
+
+.btnConfirm{
+    padding-left: 15px;
+    padding-right: 15px;
+    float: right;
+}
+
+#card-element{
+    padding: 20px;   
+}
+
+#payment-result{
+    margin-top: 20px;
+}
+}
